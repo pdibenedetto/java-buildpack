@@ -74,8 +74,6 @@ default_versions:
   version: 3.x
 - name: groovy
   version: 4.0.x
-- name: spring-boot-cli
-  version: 2.7.x
 - name: jvmkill
   version: 1.x
 - name: memory-calculator
@@ -142,9 +140,6 @@ url_to_dependency_map:
   version: "$1"
 - match: tomcat-(\d+\.\d+\.\d+)
   name: tomcat
-  version: "$1"
-- match: spring-boot-cli-(\d+\.\d+\.\d+)
-  name: spring-boot-cli
   version: "$1"
 - match: jvmkill-(\d+\.\d+\.\d+)
   name: jvmkill
@@ -568,15 +563,6 @@ dependencies:
   - cflinuxfs5
   source: https://github.com/signalfx/splunk-otel-java/releases/download/v2.30.2/splunk-otel-javaagent.jar
   source_sha256: df53f2588671c79293a3efcff1d8f98d1483bf4ca4360c45e8fb8c57e5127b25
-- name: spring-boot-cli
-  version: 2.7.18
-  uri: https://buildpacks.cloudfoundry.org/dependencies/spring-boot-cli/spring-boot-cli_2.7.18_linux_noarch_any-stack_e35d1ee2.tgz
-  sha256: e35d1ee2c6ddc5c97a3eb305297d0e8aad328c3d87ab3c62b7cfb42de04d8720
-  cf_stacks:
-  - cflinuxfs4
-  - cflinuxfs5
-  source: https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-cli/2.7.18/spring-boot-cli-2.7.18-bin.tar.gz
-  source_sha256: ''
 - name: tomcat
   version: 9.0.121
   uri: https://buildpacks.cloudfoundry.org/dependencies/tomcat/tomcat_9.0.121_linux_noarch_any-stack_d1a80450.tgz
