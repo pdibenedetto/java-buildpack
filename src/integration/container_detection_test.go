@@ -55,7 +55,13 @@ func testContainerDetectionErrors(platform switchblade.Platform, fixtures string
 		})
 
 		it.After(func() {
-			platform.Delete.Execute(name)
+			if t.Failed() && name != "" {
+				t.Logf("FAILED TEST - App/Container: %s", name)
+				t.Logf("   Platform: %s", settings.Platform)
+			}
+			if name != "" && (!settings.KeepFailedContainers || !t.Failed()) {
+				Expect(platform.Delete.Execute(name)).To(Succeed())
+			}
 		})
 
 		context("when detect itself rejects the application", func() {
